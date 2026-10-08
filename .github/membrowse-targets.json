@@ -2,7 +2,7 @@
   {
     "target_name": "esp32s3",
     "setup_cmd": "pip install uv && uv sync",
-    "build_cmd": "bash compile esp32s3 --examples Blink --no-interactive && bash .github/membrowse/export-linker-script.sh esp32s3",
+    "build_cmd": "uv sync && bash compile esp32s3 --examples Blink --no-interactive && cp \"$(grep -oE '/[^\"]*/tools/esp32-arduino-libs/esp32s3\\b' .build/fbuild/esp32s3/build_info_Blink.json | head -n 1)/ld/memory.ld\" .build/fbuild/esp32s3/membrowse.ld",
     "elf": ".build/fbuild/esp32s3/.fbuild/build/release/firmware.elf",
     "ld": ".build/fbuild/esp32s3/membrowse.ld",
     "map_file": ".build/fbuild/esp32s3/.fbuild/build/release/firmware.map",
@@ -11,7 +11,7 @@
   {
     "target_name": "esp32c3",
     "setup_cmd": "pip install uv && uv sync",
-    "build_cmd": "bash compile esp32c3 --examples Blink --no-interactive && bash .github/membrowse/export-linker-script.sh esp32c3",
+    "build_cmd": "uv sync && bash compile esp32c3 --examples Blink --no-interactive && cp \"$(grep -oE '/[^\"]*/tools/esp32-arduino-libs/esp32c3\\b' .build/fbuild/esp32c3/build_info_Blink.json | head -n 1)/ld/memory.ld\" .build/fbuild/esp32c3/membrowse.ld",
     "elf": ".build/fbuild/esp32c3/.fbuild/build/release/firmware.elf",
     "ld": ".build/fbuild/esp32c3/membrowse.ld",
     "map_file": ".build/fbuild/esp32c3/.fbuild/build/release/firmware.map",
@@ -20,7 +20,7 @@
   {
     "target_name": "teensy41",
     "setup_cmd": "pip install uv && uv sync",
-    "build_cmd": "bash compile teensy41 --examples Blink --no-interactive && bash .github/membrowse/export-linker-script.sh teensy41",
+    "build_cmd": "uv sync && bash compile teensy41 --examples Blink --no-interactive && cp \"$(grep -oE '/[^\"]*/cores/teensy4\\b' .build/fbuild/teensy41/build_info_Blink.json | head -n 1)/imxrt1062_t41.ld\" .build/fbuild/teensy41/membrowse.ld",
     "elf": ".build/fbuild/teensy41/.fbuild/build/release/firmware.elf",
     "ld": ".build/fbuild/teensy41/membrowse.ld",
     "map_file": ".build/fbuild/teensy41/.fbuild/build/release/firmware.map",
@@ -29,7 +29,7 @@
   {
     "target_name": "uno",
     "setup_cmd": "pip install uv && uv sync",
-    "build_cmd": "bash compile uno --examples Blink --no-interactive && bash .github/membrowse/export-linker-script.sh uno",
+    "build_cmd": "uv sync && bash compile uno --examples Blink --no-interactive && cp \"$(grep -oE '/[^\"]*/avr/bin/avr-gcc\\b' .build/fbuild/uno/build_info_Blink.json | head -n 1 | sed 's#/bin/avr-gcc$##')/avr/lib/ldscripts/avr5.x\" .build/fbuild/uno/membrowse.ld",
     "elf": ".build/fbuild/uno/.fbuild/build/release/firmware.elf",
     "ld": ".build/fbuild/uno/membrowse.ld",
     "map_file": ".build/fbuild/uno/.fbuild/build/release/firmware.map",
